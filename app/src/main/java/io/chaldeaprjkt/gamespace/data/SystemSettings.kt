@@ -60,12 +60,12 @@ class SystemSettings @Inject constructor(
 
     var threeScreenshot
         get() = Settings.System.getIntForUser(
-            resolver, Settings.System.SWIPE_TO_SCREENSHOT, 0,
+            resolver, "three_finger_gesture_action", 0,
             UserHandle.USER_CURRENT
-        ) == 1
+        ) != 0
         set(it) {
             Settings.System.putIntForUser(
-                resolver, Settings.System.SWIPE_TO_SCREENSHOT,
+                resolver, "three_finger_gesture_action",
                 it.toInt(), UserHandle.USER_CURRENT
             )
         }
